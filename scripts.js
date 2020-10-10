@@ -15,10 +15,7 @@ function getCookie(name) {
 
 // Check if user isn't opted out
 const optOutCookie = getCookie('IZOOK_OPT_OUT');
-console.log(optOutCookie);
-console.log(document.cookie);
 if (optOutCookie != "true") {
-  console.log("Set up google analytics");
   setUpGoogleAnalytics();
 }
 
@@ -32,11 +29,11 @@ setInterval(function changeColor() {
   knotrisColors[randomIndex];
 }, 4500)
 
+// Opt out of google analytics on all my pages
 function optOut() {
   window['ga-disable-UA-162642839-1'] = true;
   document.getElementsByClassName("cookieBanner")[0].style.transform = "translateY(0%)";
   document.cookie = "IZOOK_OPT_OUT=true";
-  console.log(document.cookie);
   setTimeout(function hideBanner() {
     document.getElementsByClassName("cookieBanner")[0].style.transform = "translateY(100%)"
   }, 10000); 
